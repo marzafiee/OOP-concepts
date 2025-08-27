@@ -37,4 +37,12 @@ public abstract class BankAccount {
         System.out.println("Current balance: " + balance);
     }
 
+    // toString method
+    @Override
+    public String toString() {
+        String info = "Account Number: " + accountNumber + "\n"
+                + "Account Holder Name: " + accountHolderName + "\n"
+                + "Current Balance: ₵" + String.format("%.2f", balance);
+        return info;
+    }
 } // class
