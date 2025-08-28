@@ -77,7 +77,7 @@ public class SavingsAccount extends BankAccount implements LoanAccount{
     @Override
     public boolean applyForLoan(double loanAmount, double yearsOfLoan) {
         // let's assume anyone can apply for a loan only up to 2 times their balance
-        double maxLoanAmount = 2 * balance;
+        double maxLoanAmount = 2 * super.getBalance();
 
         // exceptions
         if(loanAmount <= 0 || yearsOfLoan <= 0) {
