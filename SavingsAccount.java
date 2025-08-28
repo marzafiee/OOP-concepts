@@ -76,7 +76,25 @@ public class SavingsAccount extends BankAccount implements LoanAccount{
     // LoanAccount intercae implementation of method applyForLoan()
     @Override
     public boolean applyForLoan(double loanAmount, double yearsOfLoan) {
-        System.out.println("jjj");
+        // let's assume anyone can apply for a loan only up to 2 times their balance
+        double maxLoanAmount = 2 * balance;
+
+        // exceptions
+        if(loanAmount <= 0 || yearsOfLoan <= 0) {
+            System.out.println("Invalid loan amount or time. It should be a positive value");
+            return false;
+        }
+
+        if (loanAmount > maxLoanAmount) {
+            // can't request a loan that is more than twice their bank balance
+            System.out.println("Loan Denied because the requested amount exceeds limit (2 times the balance");
+            return false;
+
+        }
+
+        // loan approved if all else fails
+        System.out.println("Loan Approved for amount: ₵" + loanAmount + " over a period of " + yearsOfLoan + " years.");
+        return true;
     }
 
     // overriding the toString method
