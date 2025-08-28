@@ -8,13 +8,34 @@
  * Author: Inez Agbenu
  * Date: August 27, 2025
  */
-public class SavingsAccount extends BankAccount {
+// note that when declaring a class, extends always comes before implements
+public class SavingsAccount extends BankAccount implements LoanAccount{
     // instance variables following the compound interest formula A = P × (1 + r/n)^(nt)
     private double interestRate; // this is r
     private int compountAmountYearly; // this is n
     private double time; // in years - it can also be 1,5 or 5.4, hence why the type is double
+    private double loanAmount, yearsOfLoan;
 
-    // constructor 1 - main (with everything)
+    // constructor 1 - main (with everything - balance and loan)
+    public SavingsAccount(String accountHolderName, int accountNumber, double balance, double interestRate, int compountAmountYearly, double time,
+                         double loanAmount, double yearsOfLoan) {
+        super(accountHolderName, accountNumber, balance);
+        this.interestRate = interestRate;
+        this.compountAmountYearly = compountAmountYearly;
+        this.time = time;
+        this.loanAmount = loanAmount;
+        this.yearsOfLoan = yearsOfLoan;
+    }
+
+    // constructor 2 - (without balance and without loan) ---- constructor overloading
+    public SavingsAccount(String accountHolderName, int accountNumber, double interestRate, int compountAmountYearly, double time) {
+        super(accountHolderName, accountNumber);
+        this.interestRate = interestRate;
+        this.compountAmountYearly = compountAmountYearly;
+        this.time = time;
+    }
+
+    // constructor 3 - (with balance and no loan application)
     public SavingsAccount(String accountHolderName, int accountNumber, double balance, double interestRate, int compountAmountYearly, double time) {
         super(accountHolderName, accountNumber, balance);
         this.interestRate = interestRate;
@@ -22,12 +43,14 @@ public class SavingsAccount extends BankAccount {
         this.time = time;
     }
 
-    // constructor 2 - (without balance) ---- constructor overloading
-    public SavingsAccount(String accountHolderName, int accountNumber, double interestRate, int compountAmountYearly, double time) {
+    // constructor 4 - (with loan and no balance)
+    public SavingsAccount(String accountHolderName, int accountNumber, double interestRate, int compountAmountYearly, double time, double loanAmount, double yearsOfLoan) {
         super(accountHolderName, accountNumber);
         this.interestRate = interestRate;
         this.compountAmountYearly = compountAmountYearly;
         this.time = time;
+        this.loanAmount = loanAmount;
+        this.yearsOfLoan = yearsOfLoan;
     }
 
     // implementing calculateInterest() with aforementioned formula: A = P × (1 + r/n)^(nt)
@@ -39,6 +62,7 @@ public class SavingsAccount extends BankAccount {
         double finalInterest = actualCompoundAmount - principal;
         return finalInterest;
     }
+
     // getters
     public double getInterestRate() { return this.interestRate; }
     public int getCompountAmountYearly() { return this.compountAmountYearly; }
@@ -48,6 +72,12 @@ public class SavingsAccount extends BankAccount {
     public void setInterestRate(double interestRate) { this.interestRate = interestRate; }
     public void setCompountAmountYearly(int compountAmountYearly) { this.compountAmountYearly = compountAmountYearly; }
     public void setTime(double time) { this.time = time; }
+
+    // LoanAccount intercae implementation of method applyForLoan()
+    @Override
+    public boolean applyForLoan(double loanAmount, double yearsOfLoan) {
+        System.out.println("jjj");
+    }
 
     // overriding the toString method
     @Override
