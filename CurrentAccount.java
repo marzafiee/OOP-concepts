@@ -13,13 +13,19 @@ public class CurrentAccount extends BankAccount {
     private double interestRate;
     private double time; // in years - it can also be 1,5 or 5.4, hence why the type is double
 
-    // constructor
+    // constructor 1 - main (with everything)
     public CurrentAccount(String accountHolderName, int accountNumber, double balance, double interestRate, double time) {
         super(accountHolderName, accountNumber, balance);
         this.interestRate = interestRate;
         this.time = time;
     }
 
+    // constructor 2 - (without balance) ---- constructor overloading
+    public CurrentAccount(String accountHolderName, int accountNumber, double interestRate, double time) {
+        super(accountHolderName, accountNumber);
+        this.interestRate = interestRate;
+        this.time = time;
+    }
     // implementing calculateInterest()
     @Override
     public double calculateInterest(double rate, double time) {

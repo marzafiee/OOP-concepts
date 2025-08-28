@@ -14,9 +14,17 @@ public class SavingsAccount extends BankAccount {
     private int compountAmountYearly; // this is n
     private double time; // in years - it can also be 1,5 or 5.4, hence why the type is double
 
-    // constructor
+    // constructor 1 - main (with everything)
     public SavingsAccount(String accountHolderName, int accountNumber, double balance, double interestRate, int compountAmountYearly, double time) {
         super(accountHolderName, accountNumber, balance);
+        this.interestRate = interestRate;
+        this.compountAmountYearly = compountAmountYearly;
+        this.time = time;
+    }
+
+    // constructor 2 - (without balance) ---- constructor overloading
+    public SavingsAccount(String accountHolderName, int accountNumber, double interestRate, int compountAmountYearly, double time) {
+        super(accountHolderName, accountNumber);
         this.interestRate = interestRate;
         this.compountAmountYearly = compountAmountYearly;
         this.time = time;
@@ -27,7 +35,7 @@ public class SavingsAccount extends BankAccount {
     public double calculateInterest(double rate, double time) {
         double principal = getBalamce();
         int n = compountAmountYearly;
-        double actualCompoundAmount = principal * [(1 + rate / n) ** (n * time)];
+        double actualCompoundAmount = principal * Math.pow((1 + rate / n), (n * time));
         double finalInterest = actualCompoundAmount - principal;
         return finalInterest;
     }
@@ -47,8 +55,8 @@ public class SavingsAccount extends BankAccount {
         double interest = calculateInterest(interestRate, time);
         double finalBalance = getBalance() + interest;
         return super.toString() + "\n" +
-                "Interest Rate: " + (interestRate * 100) + "\n" +
-                "Compunded: " + compountAmountYearly + "annually" + "\n" +
+                "Interest Rate: " + (interestRate * 100) + "%\n" +
+                "Compounded: " + compountAmountYearly + "annually" + "\n" +
                 "Interest Earned: ₵" + String.format(%.2f, interest) + "\n" +
                 "Time (in years): " + time + "\n" +
                 "Balance after Interest: ₵" + String.format(%.2f, finalBalance);

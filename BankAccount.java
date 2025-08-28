@@ -22,6 +22,11 @@ public abstract class BankAccount {
         this.balance = balance;
     }
 
+    // another constructor that sets balance to a default value
+    public BankAccount(String accountHolderName, int accountNumber) {
+        this(accountHolderName, accountNumber, 50.0);
+    }
+
     // abstract method: calculateInterest()
     public abstract double calculateInterest(double rate, int months);
 
