@@ -32,8 +32,8 @@ public class CurrentAccount extends BankAccount {
         return getBalance() * rate * time; // following simple interest calculation (SI = PRT)
     }
     // getters
-    public void getInterestRate() { return this.interestRate; }
-    public void getTimeInYears() { return this.time; }
+    public double getInterestRate() { return this.interestRate; }
+    public double getTimeInYears() { return this.time; }
 
     // setters for changine fields later on - to avoid hardcoding
     public void setInterestRate(double interestRate) { this.interestRate = interestRate; }
@@ -47,6 +47,6 @@ public class CurrentAccount extends BankAccount {
         return super.toString() + "\n" +
                 "Interest Rate: " + (interestRate * 100) + "\n" +
                 "Time (in years): " + time + "\n" +
-                "Balance after Interest: ₵" + String.format(%.2f, finalBalance);
+                "Balance after Interest: ₵" + String.format("%.2f", finalBalance);
     }
 }//class

@@ -28,7 +28,7 @@ public abstract class BankAccount {
     }
 
     // abstract method: calculateInterest()
-    public abstract double calculateInterest(double rate, int months);
+    public abstract double calculateInterest(double rate, double time);
 
     //getters
     public double getBalance() { return balance;}

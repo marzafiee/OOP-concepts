@@ -33,7 +33,7 @@ public class SavingsAccount extends BankAccount {
     // implementing calculateInterest() with aforementioned formula: A = P × (1 + r/n)^(nt)
     @Override
     public double calculateInterest(double rate, double time) {
-        double principal = getBalamce();
+        double principal = getBalance();
         int n = compountAmountYearly;
         double actualCompoundAmount = principal * Math.pow((1 + rate / n), (n * time));
         double finalInterest = actualCompoundAmount - principal;
@@ -57,8 +57,8 @@ public class SavingsAccount extends BankAccount {
         return super.toString() + "\n" +
                 "Interest Rate: " + (interestRate * 100) + "%\n" +
                 "Compounded: " + compountAmountYearly + "annually" + "\n" +
-                "Interest Earned: ₵" + String.format(%.2f, interest) + "\n" +
+                "Interest Earned: ₵" + String.format("%.2f", interest) + "\n" +
                 "Time (in years): " + time + "\n" +
-                "Balance after Interest: ₵" + String.format(%.2f, finalBalance);
+                "Balance after Interest: ₵" + String.format("%.2f", finalBalance);
     }
 }//class
