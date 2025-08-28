@@ -12,7 +12,7 @@
 public class SavingsAccount extends BankAccount implements LoanAccount{
     // instance variables following the compound interest formula A = P × (1 + r/n)^(nt)
     private double interestRate; // this is r
-    private int compountAmountYearly; // this is n
+    private final int compountAmountYearly; // this is n
     private double time; // in years - it can also be 1,5 or 5.4, hence why the type is double
     private double loanAmount, yearsOfLoan;
 
@@ -70,7 +70,7 @@ public class SavingsAccount extends BankAccount implements LoanAccount{
 
     // setters for changine fields later on - to avoid hardcoding
     public void setInterestRate(double interestRate) { this.interestRate = interestRate; }
-    public void setCompountAmountYearly(int compountAmountYearly) { this.compountAmountYearly = compountAmountYearly; }
+    // public void setCompountAmountYearly(int compountAmountYearly) { this.compountAmountYearly = compountAmountYearly; }
     public void setTime(double time) { this.time = time; }
 
     // LoanAccount intercae implementation of method applyForLoan()
