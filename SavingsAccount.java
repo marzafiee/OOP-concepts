@@ -15,6 +15,7 @@ public class SavingsAccount extends BankAccount implements LoanAccount{
     private final int compountAmountYearly; // this is n
     private double time; // in years - it can also be 1,5 or 5.4, hence why the type is double
     private double loanAmount, yearsOfLoan;
+    public static int a;
 
     // constructor 1 - main (with everything - balance and loan)
     public SavingsAccount(String accountHolderName, int accountNumber, double balance, double interestRate, int compountAmountYearly, double time,

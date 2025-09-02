@@ -10,6 +10,7 @@ public class BankAccountDemo {
         //                         double loanAmount, double yearsOfLoan)
         BankAccount trialAccount = new SavingsAccount("Eyra Agbenu", 400052, 400.0, 0.80, 200, 2.0, 800, 1.5);
         BankAccount trialAccount2 = new SavingsAccount("John Agbenu", 4000032, 450.0, 0.80, 200, 2.0, 800, 1.5);
+        SavingsAccount.a;
 
         double interest = trialAccount.calculateInterest(0.05, 2);
         System.out.println(trialAccount.toString());
